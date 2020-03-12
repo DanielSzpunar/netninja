@@ -12,6 +12,17 @@ class App extends React.Component {
       {name: 'john', age: 23, belt: 'blue', id:4 }
     ]
   }
+  addNinja = (ninja) => {
+    console.log(ninja)
+    ninja.id = Math.random();
+    let ninjas = [...this.state.ninjas, ninja]
+    this.setState({
+      ninjas: ninjas
+    })
+  }
+  deleteNinja = (id) => {
+
+  }
 
   render() {
     return (
@@ -19,7 +30,7 @@ class App extends React.Component {
       <h1>H1 Tag</h1>
         <Ninjas ninjas = {this.state.ninjas} />
         <br />
-        <AddNinja />
+        <AddNinja deleteNinja = {this.deleteNinja} addNinja = {this.addNinja} />
       </div>
     )
   }
