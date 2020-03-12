@@ -2,6 +2,8 @@ import React from 'react'
 
 class AddNinja extends React.Component {
     
+
+    
     handleSumbit = (e) => {
         e.preventDefault()
     }
