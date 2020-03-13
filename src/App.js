@@ -20,17 +20,23 @@ class App extends React.Component {
       ninjas: ninjas
     })
   }
+  //if Id equals ninja.id remove it from list; then repopulate list.
   deleteNinja = (id) => {
-
+    let ninjas = this.state.ninjas.filter(ninja => {
+      return ninja.id !==id
+    })
+    this.setState({
+      ninjas:ninjas
+    })
   }
 
   render() {
     return (
       <div>
       <h1>H1 Tag</h1>
-        <Ninjas ninjas = {this.state.ninjas} />
+        <Ninjas ninjas = {this.state.ninjas} deleteNinja = {this.deleteNinja} />
         <br />
-        <AddNinja deleteNinja = {this.deleteNinja} addNinja = {this.addNinja} />
+        <AddNinja addNinja = {this.addNinja} />
       </div>
     )
   }
